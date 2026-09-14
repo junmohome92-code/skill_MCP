@@ -1,0 +1,22 @@
+# WSL Codex MCP example
+# Merge only the blocks you need into ~/.codex/config.toml.
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+enabled = true
+
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@latest"]
+enabled = true
+
+# Docker Desktop MCP Toolkit gateway.
+# In Docker Desktop, create a profile named "codex-dev" and add GitHub Official
+# and any other Docker-catalog MCP servers you want to expose.
+[mcp_servers.docker_toolkit]
+command = "docker"
+args = ["mcp", "gateway", "run", "--profile", "codex-dev"]
+enabled = true
+
+# Filesystem and Git MCP are intentionally omitted.
+# Codex can use local files and the git CLI directly inside WSL.
