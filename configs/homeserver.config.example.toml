@@ -1,0 +1,18 @@
+# Ubuntu home-server Codex MCP example
+# Merge only the blocks you need into ~/.codex/config.toml.
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+enabled = true
+
+# Optional. Keep browser automation disabled unless the server actually needs it.
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@latest", "--headless"]
+enabled = false
+
+# Docker Desktop MCP Toolkit is intentionally not configured here.
+# The home server runs Docker Engine directly; Codex can use docker/docker compose
+# through the shell without another MCP layer.
+
+# Filesystem and Git MCP are also omitted for the same reason.
